@@ -1,0 +1,12 @@
+Your name: Victor Shih
+Your student ID: 011970179
+Your major: Applied Computational Math
+Your preferred email address: victor.shih@sjsu.edu
+Check one: [x] Undergraduate, [ ] Graduate, [ ] Open university 
+Repeating the class? [ ] Yes, [x] No
+Place and semester where you took a programming course in Java: SJSU, 2017 Fall Sem.
+Course number and grade received: CS46B, B
+Place and semester where you took a course in data structures: SJSU, 2017 Fall Sem.
+Course number and grade received: CS46B, B
+Time it took you to answer the two questions below: 1 hr
+Did you ask anyone for help? [ ] Yes, [x] No
