@@ -22,10 +22,4 @@ public class Strings {
 		return uChars;
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//System.out.println("hi");
-		System.out.println(uniqueLetters("hello"));
-		System.out.println(uniqueLetters("harrasses"));
-	}
 }
