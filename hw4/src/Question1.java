@@ -14,6 +14,7 @@ public class Question1{
 	
 	// METHODS
 	public void unSyncedDeposit(int a) {
+		System.out.println("unsynced");
 		records.add(a);
 		currentAmt += a;
 		System.out.println("history: " + records.toString());
@@ -24,16 +25,17 @@ public class Question1{
 	}
 	
 	public synchronized void syncedDeposit(int a) {
+		System.out.println("synced");
 		records.add(a);
 		currentAmt += a;
-		System.out.println("history: " + records.toString());
+		System.out.println("synced history: " + records.toString());
 	}
 	public synchronized void syncedWithdraw(int a) {
 		records.add(a);
 		currentAmt -= a;
 	}
 	
-	public int getCurrentAmt() {
+	public synchronized int getCurrentAmt() {
 		return currentAmt;
 	}
 
