@@ -1,1 +1,26 @@
-1a) 
+
+if synced, then: 
+20000 and 20001 should be ordered together in the history.
+-20000 and -20001 should be ordered together in the history.
+10000 and 10001 should be ordered together in the history.
+-10000 and -10001 should be ordered together in the history.
+
+1a) Notice that in Unsynced deposit/withdraw history, the lines don't always alternate between "history" and "current amt".
+	Sometimes it prints the "history" from the withdraw/deposit methods from both threads without printing the "Current amt" immediately after the "history".
+	eg: history:
+		history:
+		current amt:
+	instead of:
+		history:
+		current amt:
+		history:
+	Also, the deposit and withdraw history is not always ordered like above when synced.
+	eg: history is 20000, 10000, 20001, 10001 instead of 20000, 20001, 10000, 10001 or 10000, 10001, 20000, 20001
+	
+	 
+1b) Notice that in the SYNCED deposit/withdraw history, the lines always alternate between "history" and "current amt".
+	also, if synced, then: 
+	20000 and 20001 should be ordered together in the history.
+	-20000 and -20001 should be ordered together in the history.
+	10000 and 10001 should be ordered together in the history.
+	-10000 and -10001 should be ordered together in the history.

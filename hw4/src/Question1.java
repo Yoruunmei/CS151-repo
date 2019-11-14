@@ -13,26 +13,45 @@ public class Question1{
 	}
 	
 	// METHODS
-	public void unSyncedDeposit(int a) {
-		System.out.println("unsynced");
-		records.add(a);
-		currentAmt += a;
-		System.out.println("history: " + records.toString());
+	public void unSyncedDeposit(ArrayList<Integer> a) {
+		
+		for (int i = 0; i < a.size(); i++) {
+			records.add(a.get(i));
+			currentAmt += a.get(i);
+			System.out.println("history: " + records.toString());
+			System.out.println("Current amt: " + this.getCurrentAmt());
+		}
+//		records.add(a);
+//		currentAmt += a;
 	}
-	public void unSyncedWithdraw(int a) {
-		records.add(a);
-		currentAmt -= a;
+	public void unSyncedWithdraw(ArrayList<Integer> a) {
+		for (int i = 0; i < a.size(); i++) {
+			records.add(-a.get(i));
+			currentAmt -= a.get(i);
+			System.out.println("history: " + records.toString());
+			System.out.println("Current amt: " + this.getCurrentAmt());
+		}
 	}
 	
-	public synchronized void syncedDeposit(int a) {
-		System.out.println("synced");
-		records.add(a);
-		currentAmt += a;
-		System.out.println("synced history: " + records.toString());
+	public synchronized void syncedDeposit(ArrayList<Integer> a) {
+		for (int i = 0; i < a.size(); i++) {
+			records.add(a.get(i));
+			currentAmt += a.get(i);
+			System.out.println("history: " + records.toString());
+			System.out.println("Current amt: " + this.getCurrentAmt());
+		}
+//		System.out.println("synced");
+//		records.add(a);
+//		currentAmt += a;
+//		System.out.println("synced history: " + records.toString());
 	}
-	public synchronized void syncedWithdraw(int a) {
-		records.add(a);
-		currentAmt -= a;
+	public synchronized void syncedWithdraw(ArrayList<Integer> a) {
+		for (int i = 0; i < a.size(); i++) {
+			records.add(-a.get(i));
+			currentAmt -= a.get(i);
+			System.out.println("history: " + records.toString());
+			System.out.println("Current amt: " + this.getCurrentAmt());
+		}
 	}
 	
 	public synchronized int getCurrentAmt() {
