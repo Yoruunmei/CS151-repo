@@ -10,52 +10,51 @@ public class Question1{
 	// bank account obj = question1
 	public Question1(int initialAmt) {
 		currentAmt = initialAmt;
+		for (int i = 0; i < 10; i++)
+			records.add(0);
 	}
 	
 	// METHODS
-	public void unSyncedDeposit(ArrayList<Integer> a) {
-		
-		for (int i = 0; i < a.size(); i++) {
-			records.add(a.get(i));
-			currentAmt += a.get(i);
+	public void unSyncedDeposit(int a) {
+
+			records.set(index, a);
 			System.out.println("history: " + records.toString());
+			currentAmt += records.get(index);
 			System.out.println("Current amt: " + this.getCurrentAmt());
-		}
-//		records.add(a);
-//		currentAmt += a;
+			index= index+1;
+			
+
 	}
-	public void unSyncedWithdraw(ArrayList<Integer> a) {
-		for (int i = 0; i < a.size(); i++) {
-			records.add(-a.get(i));
-			currentAmt -= a.get(i);
+	public void unSyncedWithdraw(int a) {
+
+			records.set(index, -a);
 			System.out.println("history: " + records.toString());
+			currentAmt += records.get(index);
 			System.out.println("Current amt: " + this.getCurrentAmt());
-		}
+			index=index+1;
+
 	}
 	
-	public synchronized void syncedDeposit(ArrayList<Integer> a) {
-		for (int i = 0; i < a.size(); i++) {
-			records.add(a.get(i));
-			currentAmt += a.get(i);
+	public synchronized void syncedDeposit(int a) {
+
+			records.set(index, a);
 			System.out.println("history: " + records.toString());
+			currentAmt += records.get(index);
 			System.out.println("Current amt: " + this.getCurrentAmt());
-		}
-//		System.out.println("synced");
-//		records.add(a);
-//		currentAmt += a;
-//		System.out.println("synced history: " + records.toString());
+			index += 1;
+
 	}
-	public synchronized void syncedWithdraw(ArrayList<Integer> a) {
-		for (int i = 0; i < a.size(); i++) {
-			records.add(-a.get(i));
-			currentAmt -= a.get(i);
-			System.out.println("history: " + records.toString());
-			System.out.println("Current amt: " + this.getCurrentAmt());
-		}
+	public synchronized void syncedWithdraw(int a) {
+
+		records.set(index, -a);
+		System.out.println("history: " + records.toString());
+		currentAmt += records.get(index);
+		System.out.println("Current amt: " + this.getCurrentAmt());
+		index=index+1;
+		
 	}
 	
 	public synchronized int getCurrentAmt() {
 		return currentAmt;
 	}
-
 }

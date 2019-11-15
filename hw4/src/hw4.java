@@ -8,7 +8,7 @@ public class hw4 {
 		ExecutorService service = Executors.newCachedThreadPool();
 		
 		Question1 account = new Question1(1000000);
-		Question1 account2 = new Question1(2000000);
+		Question1 account2 = new Question1(1000000);
 		
 		Runnable person1UnSynced = () -> {
 			try {
@@ -18,45 +18,29 @@ public class hw4 {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			ArrayList<Integer> deposits = new ArrayList<Integer>();
-			deposits.add(10000);
-			deposits.add(10001);
-			account.unSyncedDeposit(deposits);
+
+			account.unSyncedDeposit(10000);
 			
-			ArrayList<Integer> withdraws = new ArrayList<Integer>();
-			withdraws.add(10000);
-			withdraws.add(10001);
-			account.syncedWithdraw(withdraws);
-//			account.unSyncedDeposit(10000);
-//			//System.out.println("P1 Depositing...");
-//			account.unSyncedDeposit(10001);
-			//System.out.println("P1 Depositing...");
-			
-			//System.out.println("Current amt: " + account.getCurrentAmt());
+
+			account.unSyncedWithdraw(10000);
+
 		};
 		
 		Runnable person2UnSynced = () -> {
-			//Thread.sleep(millis);
-			//System.out.println("P2 Depositing...");
 			try {
 				Thread.sleep(0);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			ArrayList<Integer> deposits = new ArrayList<Integer>();
-			deposits.add(20000);
-			deposits.add(20001);
-			account.unSyncedDeposit(deposits);
+
+			account.unSyncedDeposit(60000);
 			
-			ArrayList<Integer> withdraws = new ArrayList<Integer>();
-			withdraws.add(20000);
-			withdraws.add(20001);
-			account.syncedWithdraw(withdraws);
-//			account.unSyncedDeposit(20000);
-//			account.unSyncedDeposit(20001);
+
+			account.unSyncedWithdraw(60000);
+
 			
-			//System.out.println("aaaCurrent amt: " + account.getCurrentAmt());
+			
 		};
 		
 		Runnable person1Synced = () -> {
@@ -67,21 +51,12 @@ public class hw4 {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//System.out.println("===Now running synced ver.===");
-			//System.out.println("P1 Depositing...");
-			ArrayList<Integer> deposits = new ArrayList<Integer>();
-			deposits.add(10000);
-			deposits.add(10001);
-			account2.syncedDeposit(deposits);
 			
-			ArrayList<Integer> withdraws = new ArrayList<Integer>();
-			withdraws.add(10000);
-			withdraws.add(10001);
-			account2.syncedWithdraw(withdraws);
-//			account2.syncedDeposit(10000);
-//			account2.syncedDeposit(10001);
+			account2.syncedDeposit(10000);
 			
-			//System.out.println("Current amt: " + account2.getCurrentAmt());
+
+			account2.syncedWithdraw(10000);
+
 		};
 		
 		Runnable person2Synced = () -> {
@@ -91,20 +66,12 @@ public class hw4 {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//System.out.println("P2 Depositing...");
-			ArrayList<Integer> deposits = new ArrayList<Integer>();
-			deposits.add(20000);
-			deposits.add(20001);
-			account2.syncedDeposit(deposits);
 			
-			ArrayList<Integer> withdraws = new ArrayList<Integer>();
-			withdraws.add(20000);
-			withdraws.add(20001);
-			account2.syncedWithdraw(withdraws);
-//			account2.syncedDeposit(20000);
-//			account2.syncedDeposit(20001);
-//			
-//			System.out.println("Current amt: " + account2.getCurrentAmt());
+			account2.syncedDeposit(60000);
+			
+
+			account2.syncedWithdraw(60000);
+
 		};
 		
 		service.execute(person1UnSynced);
