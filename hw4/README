@@ -1,5 +1,7 @@
 
 
+Main method for Q1 is in hw4.java
+Main method for Q2 is in AnimationTester.java
 
 1a) Notice that in Unsynced deposit/withdraw history, the lines don't always alternate between "history" and "current amt".
 	Sometimes it prints the "history" from the withdraw/deposit methods from both threads without printing the "Current amt" immediately after the "history".
