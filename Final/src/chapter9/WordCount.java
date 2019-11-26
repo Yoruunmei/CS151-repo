@@ -13,13 +13,14 @@ public class WordCount {
 	
 	// java -classpath . chapter9.WordCount /Users/victorshih/Documents/SJSU/Yr\ 3\ -\ Semester\ 1/CS151/Exam/Shih_Victor_final/Test\ Files/File1.txt
 	public static void main(String[] args) {
-		int numOfFiles = args.length;
-		ArrayList<File> listOfFiles = new ArrayList<File>();
-		for (int i = 0; i < numOfFiles; i++) {
-			listOfFiles.add(new File(args[i]));
-		}
-		ExecutorService service = Executors.newFixedThreadPool(numOfFiles);
+//		int numOfFiles = args.length;
+//		ArrayList<File> listOfFiles = new ArrayList<File>();
+//		for (int i = 0; i < numOfFiles; i++) {
+//			listOfFiles.add(new File(args[i]));
+//		}
+//		ExecutorService service = Executors.newFixedThreadPool(numOfFiles);
 		
+		ExecutorService service = Executors.newFixedThreadPool(1);
 		// Make array of numOfFiles Runnable instances.
 		// Execute each Runnable instance.
 		
@@ -34,9 +35,11 @@ public class WordCount {
 		
 		// split by spaces: String input = "Hello I'm your String";
         // String[] parts = input.split( " " );
+		String nonTerminalTestFile = "/Users/victorshih/Documents/SJSU/Yr 3 - Semester 1/CS151/CS151-repo/Final/src/chapter9/NonTerminalTest";
 		Runnable r1 = () -> {
 			try {
-				BufferedReader br = new BufferedReader(new FileReader(listOfFiles.get(0))); // get first file
+				BufferedReader br = new BufferedReader(new FileReader(new File(nonTerminalTestFile)));
+//				BufferedReader br = new BufferedReader(new FileReader(listOfFiles.get(0))); // get first file
 				String line;
 				int numOfWordsGT4 = 0;	
 				
@@ -51,7 +54,8 @@ public class WordCount {
 						}
 					}
 				}
-				System.out.println(listOfFiles.get(0).getName() + " : " + numOfWordsGT4);
+				//System.out.println(listOfFiles.get(0).getName() + " : " + numOfWordsGT4);
+				System.out.println("NonTerminalTest : " + numOfWordsGT4);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
