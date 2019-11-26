@@ -6,7 +6,11 @@ import java.util.concurrent.*;
 
 public class WordCount {
 
-	
+	/**
+	 * Counts number of words with length <= 4 within a file. 
+	 * @param file the file to be analyzed. 
+	 * @return the instance of a Callable<Integer> that returns the value of the number of words with length >= 4.
+	 */
 	public static Callable<Integer> countWordsWithLengthAtMost4(File file) {
 		return () -> {
 			int numOfWordsGT4 = 0;	
